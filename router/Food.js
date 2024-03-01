@@ -8,7 +8,7 @@ const router = express.Router();
 
 //Register Menu
 module.exports = (db, secretKey) =>{
-    router.post('/AddFood' ,async(req,res) => {
+    router.post('/AddFood', authenticateToken ,async(req,res) => {
 
         try {
     
@@ -53,7 +53,7 @@ module.exports = (db, secretKey) =>{
     });
    
     //Get all Food
-    router.get('/ShowAllFood', (req, res) => {
+    router.get('/ShowAllFood', authenticateToken, (req, res) => {
     
         try {
     

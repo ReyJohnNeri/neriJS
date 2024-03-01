@@ -8,7 +8,7 @@ const router = express.Router();
 
 //Register Menu
 module.exports = (db, secretKey) =>{
-    router.post('/AddColdDrinks' ,async(req,res) => {
+    router.post('/AddColdDrinks', authenticateToken ,async(req,res) => {
 
         try {
     

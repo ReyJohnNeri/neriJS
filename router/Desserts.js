@@ -8,7 +8,7 @@ const router = express.Router();
 
 //Register Menu
 module.exports = (db, secretKey) =>{
-    router.post('/AddDesserts' ,async(req,res) => {
+    router.post('/AddDesserts', authenticateToken ,async(req,res) => {
 
         try {
     
@@ -129,17 +129,6 @@ module.exports = (db, secretKey) =>{
         return res.json({id, name, description, menu_id});
     });
 
-    // router.get("/", function (req, res) {
-    //     onAuthStateChanged(auth, (user) => {
-    //         signStatus = 0;
-    //         if (user) {
-    //             signStatus = 1;
-    //         } else {
-    //             signStatus = 0;
-    //         }
-    //         return res.render("index", { signStatus: signStatus })   // 2nd response...
-    //     });
-    // })
 
     //delete a Menu
     router.delete('/deleteDesserts/:id', authenticateToken,(req, res) => {
